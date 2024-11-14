@@ -1,0 +1,32 @@
+<h1 nz-title>Product page</h1>
+<!--<p>{{ (products$ | async) | json }}</p>-->
+<!--<p>{{ (loading$ | async) | json }}</p>-->
+<h1 *ngIf="loading$|async">loading....</h1>
+<button nz-button type="button" (click)="openModal()">add</button>
+
+
+<p *ngIf="error$|async" style="color: red;">{{ (error$ | async) | json }}</p>
+<!-- <p>number : {{counter$ | async}}</p>
+<button (click)="increment()">increment</button>
+<button (click)="decrement()">decrement</button>
+<button (click)="reset()">reset</button> -->
+<div style="background: #ECECEC; padding:30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8" *ngFor="let todo of products$ | async; let i = index">
+      <ng-container>
+
+        <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+          <nz-card-meta appHighlight [nzTitle]="todo.name " [nzDescription]="todo.description || ''"
+                        (click)="openModal(todo)">
+          </nz-card-meta>
+          <button nz-button (click)="deleteItem(todo.id)">delete</button>
+        </nz-card>
+        <ng-template #coverTemplate>
+          <img alt="example" [src]="todo.image"/>
+        </ng-template>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+

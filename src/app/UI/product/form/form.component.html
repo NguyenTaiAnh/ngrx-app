@@ -1,0 +1,37 @@
+<form nz-form action="" [formGroup]="form" (ngSubmit)="submit()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid Name!">
+      <input nz-input formControlName="name" id="name"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="price">price</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid price!">
+      <input nz-input formControlName="price" id="price"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="description">description</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid description!">
+      <input nz-input formControlName="description" id="description"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="image">image</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid image!">
+      <input nz-input formControlName="image" id="image"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!--  <label for="price">Price</label>-->
+  <!--  <input id="price" type="number" formControlName="price">-->
+  <!--  <label for="description">Description</label>-->
+  <!--  <input id="description" type="text" formControlName="description">-->
+  <!--  <label for="image">Image</label>-->
+  <!--  <input id="image" type="text" formControlName="image">-->
+  <button style="display: inline-flex; justify-content:center;width: 100%" nz-button type="submit"
+          [disabled]="!form.valid">Submit
+  </button>
+  <button type="button" (click)="close()">close</button>
+</form>
